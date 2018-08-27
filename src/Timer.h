@@ -1,3 +1,6 @@
+#ifndef Timer_Class
+#define Timer_Class
+
 class Timer {
   /* Find out if a timer has expired
     Can drift by 1 msec (use Timer::NoDrift for no drift)
@@ -43,16 +46,7 @@ class Timer {
 
     // Has the timer expired?
     // auto-restarts, can drift
-    boolean is_expired() {
-      unsigned long now = millis(); // save 2 millis calls
-      if ( (now - timer_start) >= interval ) {    
-        timer_start = now; // minimize drift
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
+    boolean is_expired(); 
 
     // Has the timer expired against this interval?
     // like above, but interval can be set each time
@@ -64,3 +58,4 @@ class Timer {
   private:
     unsigned long timer_start;
 };
+#endif
