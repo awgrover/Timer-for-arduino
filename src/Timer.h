@@ -4,11 +4,16 @@ class Timer {
     Can change interval at any time (or leave it)
     Can initialize, or set interval
     Can test & set interval in one call (convenience)
+    Automatically restarts for next period (use Timer::OneShot for once)
+    Or manually restart (with optional new interval)
 
     Several Usage Patterns (see examples)
 
     * SimplePeriodic if your loop is quick enough, or your period can drift
       and you just need to know when a timer has expired
+    * ChangePeriodic changing the interval as it goes, based on a potentiometer
+    * IntervalAtSetup: if you want to set the interval in setup()
+    * ExplicitRestart: for statemachines, or timing from another event
 
   */
 
